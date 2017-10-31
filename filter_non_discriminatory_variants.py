@@ -52,9 +52,9 @@ def filter(args):
                                  record.samples if not sample['FREQ'] == None]
 		if ref > 0 and alt > 0:
 			filtered_pos[record.CHROM][record.POS] = True
-			if args.use_het:
-				if [freq for freq in freqs if (freq >= min_het and freq <= max_het)]:
-					filtered_pos[record.CHROM][record.POS] = False
+	#			if args.use_het:
+	#			if [freq for freq in freqs if (freq >= min_het and freq <= max_het)]:
+	#				filtered_pos[record.CHROM][record.POS] = False
 		if i % 1000 == 0:
                         print >> sys.stderr, '%i lines processed' %i
 
