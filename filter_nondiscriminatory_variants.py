@@ -46,8 +46,8 @@ def filter(args):
 		record.samples = [sample for sample in record.samples if sample.sample not in exclude_list]
 		ref = alt = 0
 		for sample in record.samples:
-			if sample['GT'] == '0/0': ref += 1
-			if sample['GT'] == '1/1': alt += 1
+			if sample['GT'] == '0': ref += 1
+			if sample['GT'] == '1': alt += 1
 	#		freqs = [float(sample['FREQ'].split('%')[0]) for sample in \
         #                        record.samples if not sample['FREQ'] == None]
 		if ref > 0 and alt > 0:
