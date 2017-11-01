@@ -48,13 +48,13 @@ def filter(args):
 		for sample in record.samples:
 			if sample['GT'] == '0/0': ref += 1
 			if sample['GT'] == '1/1': alt += 1
-			freqs = [float(sample['FREQ'].split('%')[0]) for sample in \
-                                 record.samples if not sample['FREQ'] == None]
+	#		freqs = [float(sample['FREQ'].split('%')[0]) for sample in \
+        #                        record.samples if not sample['FREQ'] == None]
 		if ref > 0 and alt > 0:
 			filtered_pos[record.CHROM][record.POS] = True
-	#			if args.use_het:
-	#			if [freq for freq in freqs if (freq >= min_het and freq <= max_het)]:
-	#				filtered_pos[record.CHROM][record.POS] = False
+				if args.use_het:
+				if [freq for freq in freqs if (freq >= min_het and freq <= max_het)]:
+					filtered_pos[record.CHROM][record.POS] = False
 		if i % 1000 == 0:
                         print >> sys.stderr, '%i lines processed' %i
 
